@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Interna sidor</title>
+    <style>
+        /* Grundinställningar */
+        * {
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0;
+          background-color: #f9f9f9;
+          color: #333;
+          line-height: 1.6;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+          background-color: #004080;
+          color: white;
+          padding: 1.5rem 2rem;
+          text-align: center;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+          margin: 0 0 0.5rem 0;
+          font-weight: 700;
+        }
+
+        /* Navigation */
+        nav ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+
+        nav ul li {
+          margin: 0;
+        }
+
+        nav ul li a {
+          color: white;
+          text-decoration: none;
+          font-weight: 600;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+          background-color: #007acc;
+          outline: none;
+        }
+
+        /* Main */
+        main {
+          flex-grow: 1;
+          padding: 2rem;
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+          font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+          background-color: #004080;
+          color: white;
+          text-align: center;
+          padding: 1rem 2rem;
+          font-size: 0.9rem;
+          box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+          margin-top: auto;
+        }
+
+        /* Responsivitet */
+        @media (max-width: 600px) {
+          nav ul {
+            flex-direction: column;
+            gap: 0.5rem;
+          }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nybergs Länkar</h1>
+        <nav>
+            <ul>
+                <li><a href="http://192.168.21.31/~jotex" target="_blank" rel="noopener noreferrer">Jotex</a></li>
+                <li><a href="http://192.168.21.32/~make" target="_blank" rel="noopener noreferrer">Make</a></li>
+                <li><a href="http://192.168.21.36/~ekiman" target="_blank" rel="noopener noreferrer">Ekiman</a></li>
+                <li><a href="http://192.168.21.34/~kenny" target="_blank" rel="noopener noreferrer">Nyberg</a></li>
+                <li><a href="http://192.168.21.34/~kenny/kelikamera/" target="_blank" rel="noopener noreferrer">Kelikamera (Nyberg)</a></li>
+                <li><a href="http://192.168.21.30/~kenny/" target="_blank" rel="noopener noreferrer">Alperi</a></li>
+                <li><a href="http://192.168.21.37/~jani" target="_blank" rel="noopener noreferrer">Jani</a></li>
+                <li><a href="http://192.168.21.33/~luca" target="_blank" rel="noopener noreferrer">Luca</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <p>Klicka på en länk för att öppna den lokala sidan i en ny flik.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Min Webbsida</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

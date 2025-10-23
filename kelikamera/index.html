@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Väderkamera från DataPartner</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #eef2f7;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: #222;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin-top: 0;
+      color: #555;
+      font-size: 1.1rem;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    iframe {
+      margin-top: 2rem;
+      width: 90vw;
+      max-width: 900px;
+      height: 500px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      background-color: white;
+    }
+
+    /* Gör sidan responsiv på små skärmar */
+    @media (max-width: 600px) {
+      iframe {
+        height: 300px;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Väderkamera från DataPartner</h1>
+  <p>Direktvy över Porvoos torg från DataPartners kontor.</p>
+
+  <iframe 
+    src="https://www.datapartner.fi/fi/webcam/" 
+    title="Väderkamera Porvoo" 
+    allowfullscreen 
+    loading="lazy">
+  </iframe>
+
+</body>
+</html>
+
