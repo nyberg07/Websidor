@@ -13,30 +13,38 @@
 </header>
 
 <main>
-  <section class="green-bg">
-    <h2>Section One</h2>
-    <button>Button One</button>
-  </section>
-
   <section class="gray-bg">
-    <h2>Section Two</h2>
-    <button>Button Two</button>
+    <h2>Section 1</h2>
+    <button>Button 1</button>
   </section>
 
   <section class="white-bg">
-    <h2>Section Three</h2>
-    <button>Button Three</button>
+    <h2>Section 2</h2>
+    <button>Button 2</button>
   </section>
 
   <section class="gray-bg">
-    <h2>Section Four</h2>
-    <button>Button Four</button>
+    <h2>Section 3</h2>
+    <button>Button 3</button>
   </section>
 </main>
 
 <footer>
   <p>&copy; 2025 Not My Website</p>
 </footer>
+
+<!-- JavaScript för att knapparna ska skriva ut hälsning -->
+<script>
+  // Hämta alla knappar på sidan
+  const buttons = document.querySelectorAll("button");
+
+  // Lägg till click-event på varje knapp
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      alert("Hej! Du klickade på " + button.textContent);
+    });
+  });
+</script>
 
 </body>
 </html>
