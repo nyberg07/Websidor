@@ -3,125 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Väderkamera från DataPartner</title>
+  <title>Borgå Torg | 2x2 Grid View</title>
   
   <style>
-    /* Länkar in Google Font */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    /* Länkar in Google Font: Roboto */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
     /* ---------------------------------- */
-    /* GLOBAL STYLING */
+    /* FÄRGDEFINITIONER */
     /* ---------------------------------- */
+    :root {
+        --primary-color: #00bcd4; 
+        --dark-bg: #263238; 
+    }
+
+    /* ---------------------------------- */
+    /* GLOBAL OCH FULLSKÄRMS INSTÄLLNINGAR */
+    /* ---------------------------------- */
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%; /* Fyll hela visningsytan */
+        overflow: hidden; /* Förhindra scrollning */
+        font-family: 'Roboto', sans-serif;
+    }
 
     body {
-      /* Dynamisk gradientbakgrund */
-      background: linear-gradient(-45deg, #0d47a1, #1e88e5, #00b8d4, #80deea);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite; /* Mjuk, rörlig animation */
-
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 3rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      color: #ffffff;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        background-color: var(--dark-bg); 
+        display: grid; 
+        /* NYCKELN: Skapa 2 kolumner och 2 rader */
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: repeat(2, 1fr); 
     }
-
-    /* Animation för den rörliga bakgrunden */
-    @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    h1 {
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      font-size: 2.5rem;
-    }
-
-    p {
-      margin-top: 0;
-      color: #cfd8dc;
-      font-size: 1.1rem;
-      max-width: 600px;
-      text-align: center;
-    }
-
+    
     /* ---------------------------------- */
-    /* CAMERA CONTAINER STYLING */
+    /* KAMERARUTOR (GRID ITEM) */
     /* ---------------------------------- */
 
-    .camera-container {
-        margin-top: 2rem;
-        width: 90vw;
-        max-width: 900px;
-        
-        /* Förbättrad, djupare skugga */
-        box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 5px 15px rgba(0,0,0,0.3);
-        
-        background-color: #263238;
-        border-radius: 12px;
-        overflow: hidden;
-        border: 4px solid #ffffff;
-        
-        /* Övergång för hovringseffekt */
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
-
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-        height: 0;
-    }
-
-    /* Hovringseffekt - lyfter kameran när man pekar på den */
-    .camera-container:hover {
-        transform: translateY(-5px) scale(1.01); 
-        box-shadow: 0 25px 50px rgba(0,0,0,0.7), 0 10px 20px rgba(0,0,0,0.4);
-    }
-
-    .camera-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
+    .camera-grid-item {
         width: 100%;
         height: 100%;
+        position: relative; 
+        overflow: hidden; 
+        
+        /* Ram/linjer mellan rutorna */
+        border: 2px solid var(--dark-bg); 
+        box-sizing: border-box;
+        transition: all 0.2s ease;
+    }
+
+    .camera-grid-item:hover {
+        /* Lätt hovringseffekt */
+        transform: scale(1.005);
+        filter: brightness(1.1);
+        z-index: 5; 
+        border-color: var(--primary-color);
+    }
+
+    .camera-grid-item iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        
+        /* Säkerställer att videon täcker rutan utan svarta kanter */
+        min-width: 100%; 
+        min-height: 100%; 
+        width: auto;
+        height: auto;
+        
+        /* Centrering */
+        transform: translate(-50%, -50%); 
         border: none;
     }
+    
   </style>
 </head>
 <body>
 
-  <h1>Väderkamera från DataPartner</h1>
-  <p>Direktvy över Porvoos torg. Kolla in den coola bakgrunden!</p>
+  <div class="camera-grid-item">
+    <iframe loading="eager" name="cam-1" src="https://camsecure.co/httpswebcam/vitaly/vitaly.html" scrolling="no" allowfullscreen="false"></iframe>
+  </div>
 
-  <div class="camera-container">
-    <iframe 
-      loading="lazy" 
-      name="dataplayer" 
-      src="https://camsecure.co/httpswebcam/vitaly/vitaly.html" 
-      scrolling="no" 
-      allowfullscreen="true" 
-      webkitallowfullscreen="true" 
-      mozallowfullscreen="true"
-    ></iframe>
+  <div class="camera-grid-item">
+    <iframe loading="eager" name="cam-2" src="https://camsecure.co/httpswebcam/vitaly/vitaly.html" scrolling="no" allowfullscreen="false"></iframe>
+  </div>
+
+  <div class="camera-grid-item">
+    <iframe loading="eager" name="cam-3" src="https://camsecure.co/httpswebcam/vitaly/vitaly.html" scrolling="no" allowfullscreen="false"></iframe>
+  </div>
+
+  <div class="camera-grid-item">
+    <iframe loading="eager" name="cam-4" src="https://camsecure.co/httpswebcam/vitaly/vitaly.html" scrolling="no" allowfullscreen="false"></iframe>
   </div>
 
   <script>
-    // Här kan du lägga till all din Javascript-kod i framtiden.
     document.addEventListener('DOMContentLoaded', () => {
-        // Denna funktion körs när all HTML har laddats klart
-        console.log("Webbsidan och livekameran har laddats klart!");
-        
-        // Exempel: Logga när iframe-innehållet är synligt
-        const iframe = document.querySelector('.camera-container iframe');
-        if (iframe) {
-            iframe.onload = () => {
-                console.log("Livekamerans innehåll är nu synligt.");
-            };
-        }
+        console.log("4 instanser av Borgå torgs kamera visas i ett 2x2 rutnät.");
     });
   </script>
 </body>
