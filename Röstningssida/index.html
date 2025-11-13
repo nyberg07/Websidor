@@ -1,208 +1,93 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Röstningspoll</title>
     <style>
         table { border-collapse: collapse; width: 100%; }
         td { border: 1px solid #ddd; padding: 8px; text-align: center; }
         button { border: none; background: none; cursor: pointer; }
         img { max-width: 150px; max-height: 150px; }
+        #message { margin: 12px 0; font-weight: bold; }
+        #message.ok { color: green; }
+        #message.err { color: red; }
     </style>
 </head>
 <body>
     <h1>Röstningspoll</h1>
-    <table>
-        <tr>
-            <td>
-                <button data-img="option1.jpg">
-                    <img src="pics/option1.jpg" alt="option1.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option10.jpg">
-                    <img src="pics/option10.jpg" alt="option10.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option11.jpg">
-                    <img src="pics/option11.jpg" alt="option11.jpg">
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button data-img="option12.jpg">
-                    <img src="pics/option12.jpg" alt="option12.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option13.jpg">
-                    <img src="pics/option13.jpg" alt="option13.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option14.jpg">
-                    <img src="pics/option14.jpg" alt="option14.jpg">
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button data-img="option15.jpg">
-                    <img src="pics/option15.jpg" alt="option15.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option16.jpg">
-                    <img src="pics/option16.jpg" alt="option16.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option17.jpg">
-                    <img src="pics/option17.jpg" alt="option17.jpg">
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button data-img="option18.jpg">
-                    <img src="pics/option18.jpg" alt="option18.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option19.jpg">
-                    <img src="pics/option19.jpg" alt="option19.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option2.jpg">
-                    <img src="pics/option2.jpg" alt="option2.jpg">
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button data-img="option20.jpg">
-                    <img src="pics/option20.jpg" alt="option20.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option21.jpg">
-                    <img src="pics/option21.jpg" alt="option21.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option22.jpg">
-                    <img src="pics/option22.jpg" alt="option22.jpg">
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button data-img="option23.jpg">
-                    <img src="pics/option23.jpg" alt="option23.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option24.jpg">
-                    <img src="pics/option24.jpg" alt="option24.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option25.jpg">
-                    <img src="pics/option25.jpg" alt="option25.jpg">
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button data-img="option26.jpg">
-                    <img src="pics/option26.jpg" alt="option26.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option27.jpg">
-                    <img src="pics/option27.jpg" alt="option27.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option28.jpg">
-                    <img src="pics/option28.jpg" alt="option28.jpg">
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button data-img="option29.jpg">
-                    <img src="pics/option29.jpg" alt="option29.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option3.jpg">
-                    <img src="pics/option3.jpg" alt="option3.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option30.jpg">
-                    <img src="pics/option30.jpg" alt="option30.jpg">
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button data-img="option31.jpg">
-                    <img src="pics/option31.jpg" alt="option31.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option4.jpg">
-                    <img src="pics/option4.jpg" alt="option4.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option5.jpg">
-                    <img src="pics/option5.jpg" alt="option5.jpg">
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button data-img="option6.jpg">
-                    <img src="pics/option6.jpg" alt="option6.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option7.jpg">
-                    <img src="pics/option7.jpg" alt="option7.jpg">
-                </button>
-            </td>
-            <td>
-                <button data-img="option8.jpg">
-                    <img src="pics/option8.jpg" alt="option8.jpg">
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button data-img="option9.jpg">
-                    <img src="pics/option9.jpg" alt="option9.jpg">
-                </button>
-            </td>
-        </tr>
-    </table>
 
-<script>
-const buttons = document.querySelectorAll("button[data-img]");
+    <div id="message"></div>
 
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
-        const imgName = button.getAttribute("data-img");
-        alert("Du klickade på " + imgName);
+    <table id="imageTable"></table>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const imageFolder = 'pics';
+        const totalImages = 31;
+        const imagesPerRow = 3;
+        const table = document.getElementById('imageTable');
+        const msg = document.getElementById('message');
+
+        // Skapa tabellrader med bilder och knappar
+        for (let i = 1; i <= totalImages; i += imagesPerRow) {
+            const tr = document.createElement('tr');
+            for (let j = 0; j < imagesPerRow; j++) {
+                const idx = i + j;
+                if (idx > totalImages) break;
+                const imgName = `option${idx}.jpg`;
+
+                const td = document.createElement('td');
+                const btn = document.createElement('button');
+                btn.setAttribute('data-img', imgName);
+
+                const img = document.createElement('img');
+                img.src = `${imageFolder}/${imgName}`;
+                img.alt = imgName;
+
+                btn.appendChild(img);
+                td.appendChild(btn);
+                tr.appendChild(td);
+
+                // Klickhanterare för rösten
+                btn.addEventListener('click', async () => {
+                    btn.disabled = true;
+                    msg.textContent = 'Rösten skickas...';
+                    msg.className = '';
+
+                    try {
+                        const body = new URLSearchParams();
+                        body.append('image', imgName);
+
+                        const res = await fetch('vote.php', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: body.toString()
+                        });
+
+                        const data = await res.json();
+
+                        if (res.ok && data.status === 'ok') {
+                            msg.textContent = data.message;
+                            msg.className = 'ok';
+                        } else {
+                            msg.textContent = data.message || 'Fel vid röstning';
+                            msg.className = 'err';
+                        }
+                    } catch (e) {
+                        msg.textContent = 'Nätverksfel eller serverfel.';
+                        msg.className = 'err';
+                    } finally {
+                        setTimeout(() => { btn.disabled = false; }, 1000);
+                    }
+                });
+            }
+            table.appendChild(tr);
+        }
     });
-});
-</script>
-
+    </script>
 </body>
 </html>
