@@ -4,45 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Väderkamera från DataPartner</title>
+  
   <style>
+    /* Länkar in Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    /* ---------------------------------- */
+    /* GLOBAL STYLING */
+    /* ---------------------------------- */
+
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #eef2f7;
+      /* Dynamisk gradientbakgrund */
+      background: linear-gradient(-45deg, #0d47a1, #1e88e5, #00b8d4, #80deea);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite; /* Mjuk, rörlig animation */
+
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 2rem;
+      padding: 3rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      color: #222;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
+
+    /* Animation för den rörliga bakgrunden */
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
     h1 {
       margin-bottom: 0.5rem;
       font-weight: 700;
+      font-size: 2.5rem;
     }
+
     p {
       margin-top: 0;
-      color: #555;
+      color: #cfd8dc;
       font-size: 1.1rem;
       max-width: 600px;
       text-align: center;
     }
-    /* Ny stil för att centrera iframe/kameravyn */
+
+    /* ---------------------------------- */
+    /* CAMERA CONTAINER STYLING */
+    /* ---------------------------------- */
+
     .camera-container {
         margin-top: 2rem;
         width: 90vw;
         max-width: 900px;
-        height: auto;
-        border: 2px solid #ccc; /* Lägger ramen runt containern istället */
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        background-color: white;
-        /* Gör containern responsiv baserat på 16:9-förhållandet */
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio (9 / 16 * 100) */
-        height: 0;
+        
+        /* Förbättrad, djupare skugga */
+        box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 5px 15px rgba(0,0,0,0.3);
+        
+        background-color: #263238;
+        border-radius: 12px;
         overflow: hidden;
+        border: 4px solid #ffffff;
+        
+        /* Övergång för hovringseffekt */
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
     }
+
+    /* Hovringseffekt - lyfter kameran när man pekar på den */
+    .camera-container:hover {
+        transform: translateY(-5px) scale(1.01); 
+        box-shadow: 0 25px 50px rgba(0,0,0,0.7), 0 10px 20px rgba(0,0,0,0.4);
+    }
+
     .camera-container iframe {
         position: absolute;
         top: 0;
@@ -56,7 +95,7 @@
 <body>
 
   <h1>Väderkamera från DataPartner</h1>
-  <p>Direktvy över Porvoos torg.</p>
+  <p>Direktvy över Porvoos torg. Kolla in den coola bakgrunden!</p>
 
   <div class="camera-container">
     <iframe 
@@ -70,5 +109,20 @@
     ></iframe>
   </div>
 
-  </body>
+  <script>
+    // Här kan du lägga till all din Javascript-kod i framtiden.
+    document.addEventListener('DOMContentLoaded', () => {
+        // Denna funktion körs när all HTML har laddats klart
+        console.log("Webbsidan och livekameran har laddats klart!");
+        
+        // Exempel: Logga när iframe-innehållet är synligt
+        const iframe = document.querySelector('.camera-container iframe');
+        if (iframe) {
+            iframe.onload = () => {
+                console.log("Livekamerans innehåll är nu synligt.");
+            };
+        }
+    });
+  </script>
+</body>
 </html>
